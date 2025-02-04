@@ -5,28 +5,28 @@ const Categories = () => {
   const cakes = [
     {
       id: 1,
-      name: 'Fitness Cake',
-      description: 'Low-calorie cheesecake with protein layer and strawberry bio-additive',
-      price: '$35',
+      name: 'Cake 1',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, inventore.',
+      price: '₹35',
       image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
     },
     {
       id: 2,
-      name: 'Insta Cake',
-      description: 'Low-calorie cheesecake with protein layer and blueberry bio-additive',
-      price: '$35',
-      image: 'https://images.unsplash.com/photo-1570145820237-4d1c237d7e31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
+      name: 'Cake 2',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, inventore.',
+      price: '₹35',
+      image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
     },
     {
       id: 3,
-      name: 'Healthy Cake',
-      description: 'Low-calorie cheesecake with protein layer and raspberry bio-additive',
-      price: '$35',
+      name: 'Cake 3',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, inventore.',
+      price: '₹35',
       image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
     }
   ];
 
-  const categories = ['Low Protein', 'Gluten Free', 'Protein Free', 'Yogurt Based'];
+  const categories = ['Cat 1', 'Cat 2', 'Cat 3', 'Cat 4'];
 
   return (
     <div className="py-20 bg-white">
