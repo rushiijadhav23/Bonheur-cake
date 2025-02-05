@@ -168,7 +168,7 @@ const Menu = () => {
 
       {/* Cake Bites Section */}
       <div className="mb-12">
-        <h2 className="font-serif text-3xl text-menu-brown text-center mb-8">Cake bites</h2>
+        <h2 className="font-serif text-3xl text-menu-brown text-center text-[#9e2156] mb-8">Cake bites</h2>
         <div className="space-y-2">
           {cakeBites.map((item, index) => (
             <div 
@@ -186,8 +186,8 @@ const Menu = () => {
 
       {/* Contact Information */}
       <div className="text-center mt-8">
-        <p className="text-gray-800 font-medium mb-1">FOR DELIVERY,</p>
-        <p className="text-gray-800">CONTACT +91-81493 75761</p>
+        <p className="text-gray-800 font-medium mb-1  text-[#9e2156]">FOR DELIVERY,</p>
+        <p className="text-gray-800  text-[#9e2156]">CONTACT +91-81493 75761</p>
       </div>
     </div>
   );
