@@ -130,10 +130,10 @@ const Menu = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-white relative">
+    <div className="max-w-4xl mx-auto p-8 bg-white relative  border-r-2 border-l-2 shadow-lg shadow-black border-[#9e2156]">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="font-serif text-4xl mb-1">BONHEUR</h1>
+        <h1 className="text-4xl font-bold text-[#9e2156] mb-1">BONHEUR</h1>
         <p className="text-menu-brown text-sm tracking-wider">WAKAD, PUNE</p>
       </div>
 
@@ -150,7 +150,7 @@ const Menu = () => {
 
       {/* Specialties Section */}
       <div className="mb-12">
-        <h2 className="font-serif text-3xl text-menu-brown text-center mb-8">Specialties</h2>
+        <h2 className="font-serif text-[#9e2156] text-3xl text-menu-brown text-center mb-8">Specialties</h2>
         <div className="space-y-2">
           {specialties.map((item, index) => (
             <div 
