@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import Cake from "../assets/cake3-removebg-preview.png"
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full min-h-screen relative bg-[#fff5f7 -z-20]">
       <div className="max-w-7xl mx-auto pt-24 px-6">
@@ -17,18 +20,21 @@ const Hero = () => {
             <p className="text-gray-600">
               If you love healthy eating but can't resist your weakness for cakes - our cakes are for you!
             </p>
-            <button className="bg-[#9e2156] text-white px-8 py-3 rounded-full hover:bg-[#7d1a44] transition-colors">
+            <button 
+              onClick={() => navigate('/menu')}
+              className="bg-[#9e2156] text-white px-8 py-3 rounded-full hover:bg-[#7d1a44] transition-colors"
+            >
               View Menu
             </button>
           </div>
           
           <div className="h-1/2 flex flex-col justify-center items-end">
-                     <img 
-                         src={Cake}
-                         alt="Delicious Cake"
-                         className="w-3/4"
-                     />
-                 </div>
+            <img 
+              src={Cake}
+              alt="Delicious Cake"
+              className="w-3/4"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
