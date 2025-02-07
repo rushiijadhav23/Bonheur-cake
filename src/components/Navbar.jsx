@@ -1,5 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Logo from '../assets/Bonheur-logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +16,11 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Add effect to scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== '/') {
@@ -33,14 +39,19 @@ const Navbar = () => {
     }
   };
 
+  const handleNavigation = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+
   const navItems = [
-    { name: 'Home', action: () => navigate('/') },
+    { name: 'Home', action: () => handleNavigation('/') },
     { name: 'Categories', action: () => scrollToSection('categories') },
     { name: 'Specialties', action: () => scrollToSection('specialties') },
     { name: 'Videos', action: () => scrollToSection('videos') },
     { name: 'Reviews', action: () => scrollToSection('reviews') },
-    { name: 'Menu', action: () => navigate('/menu') },
-    { name: 'About Us', action: () => navigate('/about') }
+    { name: 'Menu', action: () => handleNavigation('/menu') },
+    { name: 'About Us', action: () => handleNavigation('/about') }
   ];
 
   return (
@@ -53,11 +64,15 @@ const Navbar = () => {
             href="/" 
             onClick={(e) => {
               e.preventDefault();
-              navigate('/');
+              handleNavigation('/');
             }}
-            className="text-2xl font-bold text-[#9e2156]"
+            className="flex items-center"
           >
-            BONHEUR
+            <img 
+              src={Logo} 
+              alt="Bonheur Logo" 
+              className="h-16 w-auto object-contain"
+            />
           </a>
         </div>
         
@@ -78,7 +93,7 @@ const Navbar = () => {
 
         <div className="flex items-center space-x-4">
           <button 
-            onClick={() => navigate('/custom-order')}
+            onClick={() => handleNavigation('/custom-order')}
             className={`px-4 py-2 rounded-full transition-all duration-300 ${
               isScrolled || isMenuPage
                 ? 'bg-[#9e2156] text-white hover:bg-[#7d1a44]'

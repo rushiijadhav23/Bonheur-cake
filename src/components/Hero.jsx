@@ -1,10 +1,40 @@
 import  { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import Cake from "../assets/cake3-removebg-preview.png"
+import gsap from 'gsap'
 
 const Hero = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    
+    gsap.set(".left-text", { x: "-100vw", opacity: 0 });
+    gsap.set(".image-container", { x: "100vw", opacity: 0 });
+    gsap.set(".content",{y:"200vw", opacity:0})
+
+    
+    gsap.to(".left-text", {
+      x: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    
+    gsap.to(".image-container", {
+      x: 0, 
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    gsap.to(".content",{
+      y:0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+    })
+  }, []);
   return (
     <div className="w-full min-h-screen relative bg-[#fff5f7 -z-20]">
       <div className="max-w-7xl mx-auto pt-24 px-6">
@@ -37,7 +67,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 content">
           <div className="flex items-center justify-center space-x-4">
             <div className="w-12 h-12">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#9e2156">

@@ -1,8 +1,8 @@
-
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import Logo from '../assets/Bonheur-logo.png';
 
 // Fix for default marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -14,10 +14,16 @@ L.Icon.Default.mergeOptions({
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const shopLocation = [18.6050183, 73.7574044];
 
+  const handleNavigation = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+
   const scrollToSection = (sectionId) => {
-    if (window.location.pathname !== '/') {
+    if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -50,7 +56,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* About Section */}
           <div>
-            <h3 className="text-2xl font-bold text-[#9e2156] mb-6">BONHEUR</h3>
+            <div className="mb-6">
+              <img 
+                src={Logo} 
+                alt="Bonheur Logo" 
+                className="h-16 w-auto object-contain mb-4"
+              />
+            </div>
             <p className="text-gray-600 mb-4">
               Creating moments of joy through our handcrafted cakes since 2015.
             </p>
@@ -73,19 +85,28 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-[#9e2156] mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer">
+                <button 
+                  onClick={() => handleNavigation('/')}
+                  className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer"
+                >
                   Home
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/about" className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer">
+                <button 
+                  onClick={() => handleNavigation('/about')}
+                  className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer"
+                >
                   About Us
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/menu" className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer">
+                <button 
+                  onClick={() => handleNavigation('/menu')}
+                  className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer"
+                >
                   Menu
-                </Link>
+                </button>
               </li>
               <li>
                 <button 
@@ -96,9 +117,12 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <Link to="/custom-order" className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer">
+                <button 
+                  onClick={() => handleNavigation('/custom-order')}
+                  className="text-gray-600 hover:text-[#9e2156] transition-colors cursor-pointer"
+                >
                   Custom Order
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

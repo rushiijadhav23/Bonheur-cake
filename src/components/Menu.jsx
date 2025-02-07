@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
 
 const specialties = [
   { 
@@ -129,12 +130,37 @@ const cakeBites = [
 const Menu = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
+  useEffect(() => {
+    gsap.set(".head-text",{x:"-100vw", opacity:0});
+    gsap.set(".main-text",{x:"100vw", opacity:0});
+    gsap.set(".menu",{y:"200vw",opacity:0});
+
+    gsap.to(".head-text",{
+      x: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+    gsap.to(".main-text",{
+      x: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+    gsap.to(".menu",{
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+  }, [])
+
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white relative mt-[8vh] border-2 shadow-lg shadow-black border-[#9e2156]">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-[#9e2156] mb-1">BONHEUR</h1>
-        <p className="text-menu-brown text-sm tracking-wider">WAKAD, PUNE</p>
+        <h1 className="text-4xl font-bold text-[#9e2156] mb-1 head-text">BONHEUR</h1>
+        <p className="text-menu-brown text-sm tracking-wider head-text">WAKAD, PUNE</p>
       </div>
 
       {/* Preview Box */}
@@ -150,8 +176,8 @@ const Menu = () => {
 
       {/* Specialties Section */}
       <div className="mb-12">
-        <h2 className="font-serif text-[#9e2156] text-3xl text-menu-brown text-center mb-8">Specialties</h2>
-        <div className="space-y-2">
+        <h2 className="font-serif text-[#9e2156] text-3xl text-menu-brown text-center mb-8 main-text">Specialties</h2>
+        <div className="space-y-2 menu">
           {specialties.map((item, index) => (
             <div 
               key={index} 
