@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import {useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 import Cake from "../assets/Hero-Cake.png"
 import gsap from 'gsap';
@@ -45,7 +45,7 @@ const Hero = () => {
               in Pune
             </p>
             <p className="text-gray-600">
-              If you love healthy eating but can't resist your weakness for cakes - our cakes are for you!
+              If you love healthy eating but can&apos;t resist your weakness for cakes - our cakes are for you!
             </p>
             <button 
               onClick={() => navigate('/menu')}
