@@ -16,9 +16,36 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const navItems = [
+    { name: 'Home', action: () => navigate('/') },
+    { name: 'Categories', action: () => scrollToSection('categories') },
+    { name: 'Specialties', action: () => scrollToSection('specialties') },
+    { name: 'Videos', action: () => scrollToSection('videos') },
+    { name: 'Reviews', action: () => scrollToSection('reviews') },
+    { name: 'Menu', action: () => navigate('/menu') },
+    { name: 'About', action: () => navigate('/about') }
+  ];
+
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4 backdrop-blur-md'
+      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center">
@@ -35,27 +62,17 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex items-center space-x-8">
-          {[
-            { name: 'About', path: '/about' },
-            { name: 'Menu', path: '/menu' },
-            { name: 'Catalog', path: '#' },
-            { name: 'Benefits', path: '#' },
-            { name: 'Contact', path: '#' }
-          ].map((item, index) => (
-            <a
+          {navItems.map((item, index) => (
+            <button
               key={index}
-              href={item.path}
-              onClick={(e) => {
-                e.preventDefault();
-                navigate(item.path);
-              }}
+              onClick={item.action}
               className={`transition-all duration-300 hover:text-[#9e2156] relative group ${
                 isScrolled || isMenuPage ? 'text-gray-600' : 'text-gray-800'
-              } ${location.pathname === item.path ? 'text-[#9e2156]' : ''}`}
+              }`}
             >
               {item.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9e2156] transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </button>
           ))}
         </div>
 
