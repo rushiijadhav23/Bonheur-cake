@@ -130,7 +130,7 @@ const Menu = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-white relative  border-r-2 border-l-2 shadow-lg shadow-black border-[#9e2156]">
+    <div className="max-w-4xl mx-auto p-8 bg-white relative mt-[9vh] border-r-2 border-l-2 shadow-lg shadow-black border-[#9e2156]">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-[#9e2156] mb-1">BONHEUR</h1>
