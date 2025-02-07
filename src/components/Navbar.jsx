@@ -49,11 +49,11 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', action: () => handleNavigation('/') },
+    { name: 'Menu', action: () => handleNavigation('/menu') },
     { name: 'Categories', action: () => scrollToSection('categories') },
     { name: 'Specialties', action: () => scrollToSection('specialties') },
     { name: 'Videos', action: () => scrollToSection('videos') },
     { name: 'Reviews', action: () => scrollToSection('reviews') },
-    { name: 'Menu', action: () => handleNavigation('/menu') },
     { name: 'About Us', action: () => handleNavigation('/about') }
   ];
 

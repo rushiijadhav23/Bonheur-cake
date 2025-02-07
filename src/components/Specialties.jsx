@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Specialties = () => {
+  const navigate = useNavigate();
+  
   const specialties = [
     {
       title: "Signature Cakes",
@@ -21,6 +24,11 @@ const Specialties = () => {
       color: "#f9a8d4"
     }
   ];
+
+  const handleNavigation = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
 
   return (
     <div className="py-20 bg-white relative overflow-hidden">
@@ -74,6 +82,7 @@ const Specialties = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => handleNavigation('/about')}
                   className="mt-4 px-6 py-2 bg-[#9e2156] text-white rounded-full hover:bg-[#7d1a44] transition-colors"
                 >
                   Learn More
@@ -96,6 +105,7 @@ const Specialties = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-[#9e2156] text-white rounded-full hover:bg-[#7d1a44] transition-colors"
+            onClick={() => handleNavigation('/custom-order')}
           >
             Order Your Custom Cake
           </motion.button>

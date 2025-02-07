@@ -7,31 +7,51 @@ const Hero = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Set initial states
     gsap.set(".left-text", { x: "-100vw", opacity: 0 });
     gsap.set(".image-container", { x: "100vw", opacity: 0 });
-    gsap.set(".content",{y:"200vw", opacity:0})
+    gsap.set(".content", { y: "200vw", opacity: 0 });
 
-    gsap.to(".left-text", {
+    // Create a timeline for better control
+    const tl = gsap.timeline();
+
+    tl.to(".left-text", {
       x: 0,
       opacity: 1,
       duration: 1.5,
       ease: "power2.out",
-    });
-
-    gsap.to(".image-container", {
+    })
+    .to(".image-container", {
       x: 0, 
       opacity: 1,
       duration: 1.5,
       ease: "power2.out",
-    });
-
-    gsap.to(".content",{
-      y:0,
+    }, "-=1.5")
+    .to(".content", {
+      y: 0,
       opacity: 1,
       duration: 1.5,
       ease: "power2.out",
-    })
+    }, "-=1");
   }, []);
+
+  const handleNavigation = (path) => {
+    // Create a timeline for exit animation
+    const tl = gsap.timeline({
+      onComplete: () => {
+        window.scrollTo(0, 0);
+        navigate(path);
+      }
+    });
+
+    // Fade out content
+    tl.to([".left-text", ".image-container", ".content"], {
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      stagger: 0.1
+    });
+  };
 
   return (
     <div className="w-full min-h-screen relative bg-[#fff5f7] -z-20">
@@ -49,7 +69,7 @@ const Hero = () => {
               If you love healthy eating but can&apos;t resist your weakness for cakes - our cakes are for you!
             </p>
             <button 
-              onClick={() => navigate('/menu')}
+              onClick={() => handleNavigation('/menu')}
               className="bg-[#9e2156] text-white px-8 py-3 rounded-full hover:bg-[#7d1a44] transition-colors"
             >
               View Menu
