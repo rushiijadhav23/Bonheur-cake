@@ -1,18 +1,16 @@
-import  { useEffect } from "react"
+import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
-import Cake from "../assets/cake3-removebg-preview.png"
+import Cake from "../assets/Hero-Cake.png"
 import gsap from 'gsap'
 
 const Hero = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
     gsap.set(".left-text", { x: "-100vw", opacity: 0 });
     gsap.set(".image-container", { x: "100vw", opacity: 0 });
     gsap.set(".content",{y:"200vw", opacity:0})
 
-    
     gsap.to(".left-text", {
       x: 0,
       opacity: 1,
@@ -20,7 +18,6 @@ const Hero = () => {
       ease: "power2.out",
     });
 
-    
     gsap.to(".image-container", {
       x: 0, 
       opacity: 1,
@@ -35,11 +32,12 @@ const Hero = () => {
       ease: "power2.out",
     })
   }, []);
+
   return (
-    <div className="w-full min-h-screen relative bg-[#fff5f7 -z-20]">
+    <div className="w-full min-h-screen relative bg-[#fff5f7] -z-20">
       <div className="max-w-7xl mx-auto pt-24 px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6 left-text">
+          <div className="space-y-6 left-text text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-bold text-[#9e2156] leading-tight">
               THE MOST<br />
               DELICIOUS CAKES
@@ -58,18 +56,18 @@ const Hero = () => {
             </button>
           </div>
           
-          <div className="h-1/2 flex flex-col justify-center items-end image-container">
+          <div className="h-1/2 flex flex-col justify-center items-center md:items-end image-container mt-8 md:mt-0">
             <img 
               src={Cake}
               alt="Delicious Cake"
-              className="w-3/4"
+              className="w-full md:w-3/4"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 content">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16 content">
+          <div className="flex items-center justify-center space-x-4 bg-white/50 p-4 rounded-lg">
+            <div className="w-12 h-12 flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#9e2156">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
@@ -77,8 +75,8 @@ const Hero = () => {
             <span className="text-gray-600">Perfect for a healthy diet</span>
           </div>
           
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12">
+          <div className="flex items-center justify-center space-x-4 bg-white/50 p-4 rounded-lg">
+            <div className="w-12 h-12 flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#9e2156">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
@@ -86,8 +84,8 @@ const Hero = () => {
             <span className="text-gray-600">Low-calorie and healthy</span>
           </div>
           
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12">
+          <div className="flex items-center justify-center space-x-4 bg-white/50 p-4 rounded-lg">
+            <div className="w-12 h-12 flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#9e2156">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const Reviews = () => {
@@ -41,7 +40,7 @@ const Reviews = () => {
         >
           <h2 className="text-4xl font-bold text-[#9e2156] mb-4">What Our Customers Say</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it - hear what our valued customers have to say about their Bonheur experience
+            Don&apos;t just take our word for it - hear what our valued customers have to say about their Bonheur experience
           </p>
         </motion.div>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import gsap from 'gsap';
 
 const specialties = [
@@ -213,7 +213,11 @@ const Menu = () => {
       {/* Contact Information */}
       <div className="text-center mt-8">
         <p className="text-gray-800 font-medium mb-1  text-[#9e2156]">FOR DELIVERY,</p>
-        <p className="text-gray-800  text-[#9e2156]">CONTACT +91-81493 75761</p>
+        <p className="text-gray-800  text-[#9e2156]">CONTACT&nbsp;&nbsp;
+            <a href="tel:+918149375761" className="text-blue-500 hover:underline">
+              +91-81493 75761
+            </a>
+        </p>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -53,10 +53,10 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pt-32 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
           {/* About Section */}
-          <div>
-            <div className="mb-6">
+          <div className="text-center sm:text-left">
+            <div className="mb-6 flex justify-center sm:justify-start">
               <img 
                 src={Logo} 
                 alt="Bonheur Logo" 
@@ -66,7 +66,7 @@ const Footer = () => {
             <p className="text-gray-600 mb-4">
               Creating moments of joy through our handcrafted cakes since 2015.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center sm:justify-start">
               <a href="#" className="text-[#9e2156] hover:text-[#7d1a44] transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-lg font-semibold text-[#9e2156] mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
@@ -128,24 +128,28 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-lg font-semibold text-[#9e2156] mb-6">Contact Us</h4>
             <ul className="space-y-3">
               <li className="text-gray-600">
                 <span className="font-medium">Address:</span><br />
-                <a href="https://www.google.com/maps?q=HQW9+RPJ,+Chaudhari+Pk+Rd,+Yamuna+Nagar,+Shankar+Kalat+Nagar,+Wakad,+Pimpri-Chinchwad,+Maharashtra+411057" target="_blank" rel="noopener noreferrer">
-                📍Wakad , Suyog space , in-front of Premji sweets, Chaudhary Park Road, Pimpri-Chinchwad, Maharashtra 411057
+                <a href="https://www.google.com/maps?q=HQW9+RPJ,+Chaudhari+Pk+Rd,+Yamuna+Nagar,+Shankar+Kalat+Nagar,+Wakad,+Pimpri-Chinchwad,+Maharashtra+411057" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="hover:text-[#9e2156] transition-colors"
+                >
+                  📍Wakad, Suyog space, in-front of Premji sweets, Chaudhary Park Road, Pimpri-Chinchwad, Maharashtra 411057
                 </a>
               </li>
               <li className="text-gray-600">
                 <span className="font-medium">Phone:</span><br />
-                <a href="tel:+918149375761" className="text-blue-500 hover:underline">
+                <a href="tel:+918149375761" className="hover:text-[#9e2156] transition-colors">
                   +91-81493 75761
                 </a>
               </li>
               <li className="text-gray-600">
                 <span className="font-medium">Email:</span><br />
-                <a href="mailto:info@bonheur.com" className="text-blue-500 hover:underline">
+                <a href="mailto:info@bonheur.com" className="hover:text-[#9e2156] transition-colors">
                   info@bonheur.com
                 </a>
               </li>
@@ -153,7 +157,7 @@ const Footer = () => {
           </div>
 
           {/* Map Section */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-lg font-semibold text-[#9e2156] mb-6">Find Us</h4>
             <div className="h-48 rounded-lg overflow-hidden">
               <MapContainer 

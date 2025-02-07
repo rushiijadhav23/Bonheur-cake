@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const navigate = useNavigate();
 
   const categories = [
     'All',
@@ -89,6 +92,18 @@ const Categories = () => {
     ? cakes 
     : cakes.filter(cake => cake.category === selectedCategory);
 
+  const handleOrder = (cake) => {
+    // Navigate to custom order page and scroll to top
+    window.scrollTo(0, 0);
+    navigate('/custom-order', {
+      state: {
+        cakeType: cake.name,
+        category: cake.category,
+        price: cake.price
+      }
+    });
+  };
+
   return (
     <div className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -102,30 +117,42 @@ const Categories = () => {
           DELICIOUS COLLECTION
         </motion.h2>
 
-        <div className="flex justify-center space-x-4 mb-12 overflow-x-auto pb-4">
-          {categories.map((category, index) => (
-            <motion.button
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full transition-all whitespace-nowrap
-                ${selectedCategory === category 
-                  ? 'bg-[#9e2156] text-white' 
-                  : 'text-gray-600 hover:text-[#9e2156] hover:bg-pink-50'}`}
-            >
-              {category}
-            </motion.button>
-          ))}
+        {/* Categories Filter */}
+        <div className="relative mb-12">
+          <div className="flex overflow-x-auto pb-4 scrollbar-hide">
+            <div className="flex space-x-4 mx-auto">
+              {categories.map((category, index) => (
+                <motion.button
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-full transition-all whitespace-nowrap
+                    ${selectedCategory === category 
+                      ? 'bg-[#9e2156] text-white' 
+                      : 'text-gray-600 hover:text-[#9e2156] hover:bg-pink-50'}`}
+                >
+                  {category}
+                </motion.button>
+              ))}
+            </div>
+          </div>
         </div>
 
+        {/* Cakes Carousel */}
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+          }}
+          loop={true}
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -147,13 +174,14 @@ const Categories = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="relative h-64 mb-4 overflow-hidden rounded-lg"
+                  className="relative h-64 mb-4 overflow-hidden rounded-lg group"
                 >
                   <img
                     src={cake.image}
                     alt={cake.name}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute top-2 right-2 bg-[#9e2156] text-white px-3 py-1 rounded-full text-sm">
                     {cake.category}
                   </div>
@@ -161,7 +189,10 @@ const Categories = () => {
                 <h3 className="text-xl font-semibold text-[#9e2156] mb-2">{cake.name}</h3>
                 <p className="text-gray-600 text-sm mb-4">{cake.description}</p>
                 <p className="text-xl font-bold text-gray-800 mb-4">{cake.price}</p>
-                <button className="bg-[#9e2156] text-white px-8 py-2 rounded-full hover:bg-[#7d1a44] transition-colors">
+                <button 
+                  onClick={() => handleOrder(cake)}
+                  className="bg-[#9e2156] text-white px-8 py-2 rounded-full hover:bg-[#7d1a44] transition-colors"
+                >
                   Order Now
                 </button>
               </motion.div>

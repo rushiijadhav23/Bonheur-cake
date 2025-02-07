@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -62,7 +61,7 @@ const About = () => {
             >
               <h2 className="text-3xl font-bold text-[#9e2156]">How We Started</h2>
               <p className="text-gray-600">
-                What began as a passion for baking in a small kitchen has grown into Pune's most loved cake shop. Our journey is filled with love, creativity, and the joy of making people happy through our delicious creations.
+                What began as a passion for baking in a small kitchen has grown into Pune&apos;s most loved cake shop. Our journey is filled with love, creativity, and the joy of making people happy through our delicious creations.
               </p>
               <p className="text-gray-600">
                 Every cake we make carries forward our tradition of excellence and innovation, making each celebration truly special.
