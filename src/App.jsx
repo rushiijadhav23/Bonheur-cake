@@ -7,6 +7,7 @@ import CakeVideos from "./components/CakeVideos"
 import Reviews from "./components/Reviews"
 import Menu from "./components/Menu"
 import About from "./components/About"
+import CustomOrder from "./components/CustomOrder"
 import Footer from "./components/Footer"
 import './App.css'
 
@@ -27,6 +28,7 @@ function App() {
           } />
           <Route path="/menu" element={<Menu />} />
           <Route path="/about" element={<About />} />
+          <Route path="/custom-order" element={<CustomOrder />} />
         </Routes>
         <Footer />
       </div>

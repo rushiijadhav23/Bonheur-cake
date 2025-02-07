@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom';
+import  { useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import Cake from "../assets/cake3-removebg-preview.png"
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="w-full min-h-screen relative bg-[#fff5f7 -z-20]">
       <div className="max-w-7xl mx-auto pt-24 px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
+          <div className="space-y-6 left-text">
             <h1 className="text-4xl md:text-5xl font-bold text-[#9e2156] leading-tight">
               THE MOST<br />
               DELICIOUS CAKES
@@ -18,7 +18,7 @@ const Hero = () => {
               in Pune
             </p>
             <p className="text-gray-600">
-              If you love healthy eating but can't resist your weakness for cakes - our cakes are for you!
+              If you love healthy eating but can&apos;t resist your weakness for cakes - our cakes are for you!
             </p>
             <button 
               onClick={() => navigate('/menu')}
@@ -28,7 +28,7 @@ const Hero = () => {
             </button>
           </div>
           
-          <div className="h-1/2 flex flex-col justify-center items-end">
+          <div className="h-1/2 flex flex-col justify-center items-end image-container">
             <img 
               src={Cake}
               alt="Delicious Cake"

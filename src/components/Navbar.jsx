@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -40,7 +40,7 @@ const Navbar = () => {
     { name: 'Videos', action: () => scrollToSection('videos') },
     { name: 'Reviews', action: () => scrollToSection('reviews') },
     { name: 'Menu', action: () => navigate('/menu') },
-    { name: 'About', action: () => navigate('/about') }
+    { name: 'About Us', action: () => navigate('/about') }
   ];
 
   return (
@@ -77,17 +77,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <span className={`font-medium transition-colors duration-300 ${
-            isScrolled || isMenuPage ? 'text-gray-700' : 'text-gray-800'
-          }`}>
-            +91-81493 75761
-          </span>
-          <button className={`px-4 py-2 rounded-full transition-all duration-300 ${
-            isScrolled || isMenuPage
-              ? 'bg-[#9e2156] text-white hover:bg-[#7d1a44]'
-              : 'bg-transparent border-2 border-[#9e2156] text-[#9e2156] hover:bg-[#9e2156] hover:text-white'
-          }`}>
-            Request Call
+          <button 
+            onClick={() => navigate('/custom-order')}
+            className={`px-4 py-2 rounded-full transition-all duration-300 ${
+              isScrolled || isMenuPage
+                ? 'bg-[#9e2156] text-white hover:bg-[#7d1a44]'
+                : 'bg-transparent border-2 border-[#9e2156] text-[#9e2156] hover:bg-[#9e2156] hover:text-white'
+            }`}
+          >
+            Custom Order
           </button>
         </div>
       </div>
@@ -95,4 +93,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
